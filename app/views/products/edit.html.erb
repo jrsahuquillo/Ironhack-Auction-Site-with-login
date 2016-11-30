@@ -1,0 +1,29 @@
+<h1>Edit product to <%=@user.name %>, ID: <%=  @user.id  %></h1>
+<hr>
+<%= render 'form' %>
+
+  <!-- Partial in _form.html.erb!! -->
+
+<!-- <% if @user_product.errors.any? %>
+  <ul>
+    <% @user_product.errors.full_messages.each do |error_msg| %>
+      <li><%= error_msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@user, @user_product] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br><br>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br><br>
+  <%= f.label :deadline %>
+  <%= f.date_field :deadline %>
+  <br><br>
+  <%= f.button %>
+  <%= link_to 'Cancel', user_products_path(@user) %>
+<% end %>
+<br>
+<a href="/users/<%= @user.id %>/products/">Back to project</a> -->

@@ -1,0 +1,23 @@
+<h1>User: <%= @user.name %></h1>
+<hr>
+<h2>User ID :<%= @user.id.to_s %></h2>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<br>
+<ul>
+  <li>
+    <% if @user.name.present? %>
+      Name: <%= @user.name %> -
+    <% end %>
+    <% if @user.email.present? %>
+      e-mail: <%= @user.email %>
+    <% end %>
+    <br>
+    <%= @user.name %> has <%= @user.products.length %> products.
+  </li>
+</ul>
+<br>
+<a href="/users/<%= @user.id %>/products">Products list></a>
+<br>
+<h3><a href="/users">Back to users list >></a></h3>

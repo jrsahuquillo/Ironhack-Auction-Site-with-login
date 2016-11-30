@@ -1,0 +1,44 @@
+<h1><%= @user_product.title %> from <%=@user.name %>, ID: <%=  @user.id  %></h1>
+<hr>
+<br>
+<ul>
+  <li>
+    <% if @user_product.title.present? %>
+      <b>Title:</b> <%= @user_product.title %> <br>
+    <% end %>
+    <% if @user_product.description.present? %>
+      <b>Description:</b> <%= @user_product.description %><br>
+    <% end %>
+    <% if @user_product.deadline.present? %>
+      <b>Deadline:</b> <%= @user_product.deadline %><br>
+    <% end %>
+    <% if @amount.present? %>
+      <b>Bidding:</b> <%= @amount %>
+      <% @amount.each do |bid| %>
+      <li>
+        <%= bid.mail + ":  " + bid.amount %>
+      </li>
+      <% end %>
+
+      <% end %>
+    <br>
+  </li>
+</ul>
+<h2>Bid on this product</h2>
+
+<form action="/users/<%= @user.id %>/products/<%= @user_product.id %>/bids" method='POST'>
+
+     <label for="email">Email</label>
+     <input type='text' placeholder='email' name="bid[email]" id="email" required>
+
+     <label for="email">Amount</label>
+     <input type='text' placeholder='amount' name="bid[amount]" id="amount" required> $
+
+     <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+     <button type="submit">Bid!</button>
+</form>
+
+<br>
+<a href="/users/<%= @user.id %>/products">Back to products list></a>
+<br>
+<h3><a href="/users">Back to users list >></a></h3>
